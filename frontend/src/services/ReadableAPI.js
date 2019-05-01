@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { normalizePosts, normalizeComments } from '../utils/normalizers'
 
-const api = "http://localhost:8080"
+const api = "http://localhost:3001"
 
 let token = localStorage.token
 if (!token)

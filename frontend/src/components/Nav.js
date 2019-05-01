@@ -3,17 +3,18 @@ import { Link, withRouter } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import { Button, Toolbar } from '@material-ui/core'
 
-const styles = theme => ({
+const styles = {
     toolbarMain: {
-        borderBottom: `1px solid ${theme.palette.grey[300]}`
+        backgroundColor: '#e6ecf0',
+        paddingLeft: 600
     }
-})
+}
 
 const Nav = ({ classes }) => {
     return (
         <Toolbar className={classes.toolbarMain}>
             <Button component={Link} to="/" size="small">Home</Button>
-            <Button component={Link} to="/new" size="small">Novo Post</Button>
+            <Button component={Link} to="/new" size="small">What's happening?</Button>
         </Toolbar>
     )
 }

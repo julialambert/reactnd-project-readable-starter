@@ -9,7 +9,10 @@ import EditDeleteButtons from './EditDeleteButtons'
 
 const styles = () => ({
     card: {
-        display: 'flex'
+        display: 'flex',
+        align: 'center',
+        marginLeft: 50,
+        marginRight: 50,
     },
     cardDetails: {
         flex: 1
@@ -41,19 +44,19 @@ class Post extends Component {
     }
 
     render() {
-        const { classes, post, isGrid, authedUser, numOfComments } = this.props
+        const { classes, post, isDiv, authedUser, numOfComments } = this.props
 
         return (
             <Card className={classes.card}>
                 <VoteInput voteScore={post.voteScore} onHandleUpvote={this.handleUpvote} onHandleDownvote={this.handleDownvote} />
                 <div className={classes.cardDetails}>
                     <CardContent>
-                        <Typography component="h2" variant="h4">{post.title}{!isGrid && post.author === authedUser && (<EditDeleteButtons onHandleDelete={this.handleDelete} onHandleEdit={this.handleEdit} />)}</Typography>
+                        <Typography component="h2" variant="h4">{post.title}{!isDiv && post.author === authedUser && (<EditDeleteButtons onHandleDelete={this.handleDelete} onHandleEdit={this.handleEdit} />)}</Typography>
                         <Typography variant="subtitle1" color="textSecondary">{`Categoria: ${post.category}`}</Typography>
                         <Typography variant="subtitle1" color="textSecondary">{`Postado por ${post.author} ` + `${formatDate(post.timestamp)}`}</Typography>
-                        {!isGrid && <Typography variant="subtitle1" color="textSecondary">{`${numOfComments} Comentários`}</Typography>}
-                        <Typography variant="subtitle1" paragraph>{isGrid ? `${post.body.substring(0, 51)}...` : post.body}</Typography>
-                        {isGrid ? <Typography variant="subtitle1" color="primary" component={RouterLink} to={`/${post.category}/${post.id}`}>Continua...</Typography> : null}
+                        {!isDiv && <Typography variant="subtitle1" color="textSecondary">{`${numOfComments} Comentários`}</Typography>}
+                        <Typography variant="subtitle1" paragraph>{isDiv ? `${post.body.substring(0, 51)}...` : post.body}</Typography>
+                        {isDiv ? <Typography variant="subtitle1" color="primary" component={RouterLink} to={`/${post.category}/${post.id}`}>Continua...</Typography> : null}
                     </CardContent>
                 </div>
             </Card>

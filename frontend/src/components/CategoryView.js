@@ -2,19 +2,19 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { DATE } from '../actions/sortedBy'
 import SortBy from './SortBy'
-import PostGrid from './PostGrid'
+import PostDiv from './PostDiv'
 import { Typography } from '@material-ui/core'
 
 const CategoryView = ({ category, postIds }) => {
     if (category === null)
-        return <p>Não existe essa categoria.</p>
+        return <p></p>
 
     return (
         <Fragment>
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom> {category.name}</Typography>
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>{category.name}</Typography>
             <SortBy />
             <main>
-                <PostGrid postIds={postIds} />
+                <PostDiv postIds={postIds} />
             </main>
         </Fragment>
     )

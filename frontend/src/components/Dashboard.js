@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { DATE } from '../actions/sortedBy'
-import PostGrid from './PostGrid'
+import PostDiv from './PostDiv'
 import SortBy from './SortBy'
 import Categories from './Categories'
 
@@ -10,7 +10,7 @@ const Dashboard = ({ postIds }) => (
         <Categories />
         <SortBy />
         <main>
-            <PostGrid postIds={postIds} />
+            <PostDiv postIds={postIds} />
         </main>
     </Fragment>
 )

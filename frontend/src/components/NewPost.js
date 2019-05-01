@@ -9,13 +9,10 @@ import Header from './Header'
 
 const styles = theme => ({
     paper: {
-        marginTop: theme.spacing.unit * 3,
-        marginLeft: theme.spacing.unit * 10,
-        marginRight: theme.spacing.unit * 10,
-        marginBottom: theme.spacing.unit * 3,
+        marginLeft: theme.spacing.unit * 50,
+        marginRight: theme.spacing.unit * 50,
         padding: theme.spacing.unit * 2,
         [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
-            marginTop: theme.spacing.unit * 6,
             marginBottom: theme.spacing.unit * 6,
             padding: theme.spacing.unit * 3,
         }
@@ -102,7 +99,6 @@ class NewPost extends Component {
 
         return (
             <Paper className={classes.paper}>
-                <Header text={"Novo post"} />
                 <form onSubmit={this.handleSubmit}>
                     <Grid container direction="column" justify="center">
                         <TextField value={this.state.title} onChange={this.handleChange} required id="title" name="title" label="title" fullWidth margin="normal" variant="outlined" />
@@ -119,7 +115,7 @@ class NewPost extends Component {
                                 )}
                             </Select>
                         </FormControl>
-                        <Button className={classes.sendButton} disabled={!this.state.title || !this.state.body || !this.state.category} type="submit" variant="contained" color="primary">Enviar</Button>
+                        <Button className={classes.sendButton} disabled={!this.state.title || !this.state.body || !this.state.category} type="submit" variant="contained" color="primary">Tweet</Button>
                     </Grid>
                 </form>
             </Paper>

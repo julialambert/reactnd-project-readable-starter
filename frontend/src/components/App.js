@@ -3,25 +3,20 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
 import NewPost from './NewPost'
 import PostPage from './PostPage'
 import CategoryView from './CategoryView'
 
-const styles = theme => ({
-    layout: {
-        width: 'auto',
-        marginLeft: theme.spacing.unit * 3,
-        marginRight: theme.spacing.unit * 3,
-        [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-            width: 1100,
-            marginLeft: 'auto',
-            marginRight: 'auto'
-        }
+const styles = {
+    home: {
+        backgroundColor: '#e6ecf0',
+        paddingLeft: 50,
+        paddingRight: 50,
+        paddingBottom: 350
     }
-})
+}
 
 class App extends Component {
 
@@ -35,9 +30,8 @@ class App extends Component {
         return (
             <Router>
                 <Fragment>
-                    <CssBaseline />
-                    <div className={classes.layout}>
-                        <Nav />
+                    <Nav />
+                    <div className={classes.home}>
                         {this.props.loading === true
                             ? null
                             : <Fragment>
